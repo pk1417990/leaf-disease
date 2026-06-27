@@ -1,0 +1,299 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Multi Plant Leaf Disease</title>
+<style>
+
+
+
+.result-card{
+    background:white;
+    padding:40px;
+    width:400px;
+    border-radius:10px;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+h2{
+    color:#333;
+    margin-bottom:25px;
+}
+
+.result-box{
+    background:#f5f5f5;
+    padding:15px;
+    margin:10px 0;
+    border-radius:6px;
+    font-size:18px;
+}
+
+.label{
+    font-weight:bold;
+    color:#444;
+}
+
+.value{
+    color:#007BFF;
+    font-weight:bold;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 20px;
+    background:#007BFF;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.back-btn:hover{
+    background:#0056b3;
+}
+
+</style>
+</head>
+
+<body>
+<div align="center">
+
+ 					{% if act=="1" %}
+					   <h4>Test Image</h4>
+					   <img src="../static/dataset/{{fn}}" width="160" height="120">
+					   <p>&nbsp;</p>
+					   
+					    <script>
+						//Using setTimeout to execute a function after 5 seconds.
+						setTimeout(function () {
+						   //Redirect with JavaScript
+						  window.location.href="/test_pro2?act=2";
+						}, 5000);
+						</script> 
+					{% elif act=="2" %}
+					   <h4>Noice Filter</h4>
+					   <img src="../static/trained/ns_{{fn}}" width="160" height="120">
+					   
+					    <script>
+						//Using setTimeout to execute a function after 5 seconds.
+						setTimeout(function () {
+						   //Redirect with JavaScript
+						  window.location.href="/test_pro2?act=3";
+						}, 5000);
+						</script> 
+					{% elif act=="3" %}
+					   <h4>Binarization</h4>
+					   <img src="../static/trained/bb/bin_{{fn}}" width="160" height="120">
+					   
+					    <script>
+						//Using setTimeout to execute a function after 5 seconds.
+						setTimeout(function () {
+						   //Redirect with JavaScript
+						  window.location.href="/test_pro2?act=4";
+						}, 5000);
+						</script> 
+					{% elif act=="4" %}
+					   <h4>Segmentation</h4>
+					   
+					   {% if leaf=="2" %}
+					   <img src="../static/trained/sg/sg_{{fn2}}" width="160" height="120">
+					   {% else %}
+					   <img src="../static/trained/sg/sg_{{fn}}" width="160" height="120">
+					   {% endif %}
+					    <script>
+						//Using setTimeout to execute a function after 5 seconds.
+						setTimeout(function () {
+						   //Redirect with JavaScript
+						  window.location.href="/test_pro2?act=5";
+						}, 5000);
+						</script> 
+					{% elif act=="5" %}
+					   <h4>Feature Extraction</h4>
+					   
+					   	{% if leaf=="2" %}
+						<img src="../static/trained/ff/{{fn2}}" width="160" height="120">
+						{% else %}
+					   <img src="../static/trained/ff/{{fn}}" width="160" height="120">
+					   {% endif %}
+					    <script>
+						//Using setTimeout to execute a function after 5 seconds.
+						setTimeout(function () {
+						   //Redirect with JavaScript
+						  window.location.href="/test_pro2?act=6";
+						}, 5000);
+						</script>
+					{% elif act=="6" %}
+					   <h2>Predicted Result</h2>
+					    {% if leaf=="1" %}
+					   		{% if ts=="5" %}
+					   <h3 style="color:#009933">Predicted Leaf: Paddy Leaf</h3>
+					   <h4 align="center">[Family: {{fam_name}}]</h4>
+					   <h3 style="color:#009933">Status: Healthy</h3>
+					   <p align="center"><img src="../static/dataset/{{fn}}" width="160" height="120"></p>
+					   		{% else %}
+							 <h3 style="color:#FF0000">Paddy Leaf Disease: {{classname}}</h3>
+							 <h4 align="center">[Family: {{fam_name}}]</h4>
+							 <br>
+					   <table border="0" align="center" width="70%">
+					   <tr>
+					   	<th align="center">Predicted Image</th>
+						<th align="center">GAN Generated Healthy Leaf(AI)</th>
+					   </tr>
+					   <tr>
+					   	<td align="center"><img src="../static/dataset/{{fn}}" width="160" height="120"></td>
+						<td align="center"><img src="../static/test/{{fnn2}}" width="160" height="120"></td>
+					   </tr>
+					   </table>
+							{% endif %}
+							
+					   {% endif %}
+					   
+					   
+					   {% if leaf=="2" %}
+					  		{% if ts=="5" %}
+					  		<h3 style="color:#009933">Predicted Leaf: Tomato Leaf</h3>
+							<h4 align="center">[Family: {{fam_name}}]</h4>
+							<h3 style="color:#009933">Status: Healthy</h3>
+							<p align="center"><img src="../static/dataset/{{fn}}" width="160" height="120"></p>
+							{% else %}
+							 <h3 style="color:#FF0000">Tomato Leaf Disease: {{classname}}</h3>
+							 <h4 align="center">[Family: {{fam_name}}]</h4>
+							 <br>
+					   <table border="0" align="center" width="70%">
+					   <tr>
+					   	<th align="center">Predicted Image</th>
+						<th align="center">GAN Generated Healthy Leaf(AI)</th>
+					   </tr>
+					   <tr>
+					   	<td align="center"><img src="../static/dataset/{{fn}}" width="160" height="120"></td>
+						<td align="center"><img src="../static/test/{{fnn2}}" width="160" height="120"></td>
+					   </tr>
+					   </table>
+							{% endif %}
+					   
+					   
+					  {% endif %}
+					  
+					  {% if leaf=="3" %}
+					  		{% if ts=="5" %}
+					  		<h3 style="color:#009933">Predicted Leaf: Mango Leaf</h3>
+							<h4 align="center">[Family: {{fam_name}}]</h4>
+							<h3 style="color:#009933">Status: Healthy</h3>
+							<p align="center"><img src="../static/dataset/{{fn}}" width="160" height="120"></p>
+							{% else %}
+							 <h3 style="color:#FF0000">Mango Leaf Disease: {{classname}}</h3>
+							 <h4 align="center">[Family: {{fam_name}}]</h4>
+							 <br>
+					   <table border="0" align="center" width="70%">
+					   <tr>
+					   	<th align="center">Predicted Image</th>
+						<th align="center">GAN Generated Healthy Leaf(AI)</th>
+					   </tr>
+					   <tr>
+					   	<td align="center"><img src="../static/dataset/{{fn}}" width="160" height="120"></td>
+						<td align="center"><img src="../static/test/{{fnn2}}" width="160" height="120"></td>
+					   </tr>
+					   </table>
+							{% endif %}
+					   
+					  {% endif %}
+					  
+					  {% if leaf=="4" %}
+					  		{% if ts=="healthy" %}
+					  		<h3 style="color:#009933">Predicted Leaf: Banana Leaf</h3>
+							<h4 align="center">[Family: {{fam_name}}]</h4>
+							<h3 style="color:#009933">Status: Healthy</h3>
+							<p align="center"><img src="../static/dataset/{{fn}}" width="160" height="120"></p>
+							{% else %}
+							 <h3 style="color:#FF0000">Banana Leaf Disease: {{classname}}</h3>
+							 <h4 align="center">[Family: {{fam_name}}]</h4>
+							  <br>
+					   <table border="0" align="center" width="70%">
+					   <tr>
+					   	<th align="center">Predicted Image</th>
+						<th align="center">GAN Generated Healthy Leaf(AI)</th>
+					   </tr>
+					   <tr>
+					   	<td align="center"><img src="../static/dataset/{{fn}}" width="160" height="120"></td>
+						<td align="center"><img src="../static/test/{{fnn2}}" width="160" height="120"></td>
+					   </tr>
+					   </table>
+							{% endif %}
+					  
+					  {% endif %}
+					  
+					  
+					  <h2>Soil Analysis Result</h2>
+					
+					<div class="result-box">
+					<span class="label">Soil Fertility:</span>
+					<span class="value">{{soil_data[0]}}</span>
+					</div>
+					
+					<div class="result-box">
+					<span class="label">Recommended Fertilizer:</span>
+					<span class="value">{{soil_data[1]}}</span>
+					</div>
+					
+					<div class="result-box">
+					<span class="label">Insight:</span>
+					<span class="value">{{soil_data[2]}}</span>
+					</div>
+					  
+					  
+					  
+					  {% if classname=="Healthy" %}
+					  
+					  {% else %}
+					  
+					  
+					  		{% if st=="1" %}
+							<h4>Preventive Measure</h4>
+							
+							{% for rs in data %}
+                                <table width="90%" align="center" border="0" cellpadding="5" cellspacing="5">
+                                  <tr>
+                                    <td style="background-color:#CCFFCC"><strong>{{rs[1]}}</strong></td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td align="left" valign="top"><strong>Symptoms:</strong> {{rs[2]}}</td>
+                                  </tr>
+								  <tr>
+								    <td align="left" valign="top">&nbsp;</td>
+							      </tr>
+								  <tr>
+                                    <td align="left" valign="top"><strong>Solution:</strong> {{rs[3]}}</td>
+                                  </tr>
+                                </table>
+								{% endfor %}
+								{% endif %}
+						
+						{% endif %}		
+								
+					
+					<h4>Medicinal Uses</h4>
+					{% for rs2 in data2 %}
+                                <table width="90%" align="center" border="0" cellpadding="5" cellspacing="5">
+                                  <tr>
+                                    <td style="background-color:#CCFFCC"><strong>{{rs2[2]}}</strong></td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td align="left" valign="top">{{rs2[3]}}</td>
+                                  </tr>
+								  
+                                </table>
+								{% endfor %}
+					    <script>
+						//Using setTimeout to execute a function after 5 seconds.
+						//setTimeout(function () {
+						   //Redirect with JavaScript
+						//  window.location.href="/test_pro2?act=4";
+						//}, 5000);
+						</script>  
+					   {% endif %}
+
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi Plant Leaf Disease Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+            background:#f7fbf7;
+        }
+
+        /* Navbar */
+        .navbar{
+            background:#0f5132;
+        }
+        .navbar-brand{
+            font-weight:700;
+            color:#fff !important;
+        }
+        .nav-link{
+            color:#eaffea !important;
+            font-weight:500;
+        }
+        .nav-link:hover{
+            color:#ffd966 !important;
+        }
+
+        /* Hero */
+        .hero{
+            background:linear-gradient(rgba(15,81,50,0.8),rgba(15,81,50,0.8)),
+            url("../static/images/banner-01.jpg") center/cover;
+            color:white;
+            padding:120px 0;
+        }
+        .hero h1{
+            font-size:48px;
+            font-weight:700;
+        }
+        .hero p{
+            font-size:18px;
+            margin-top:15px;
+        }
+
+        /* Buttons */
+        .btn-main{
+            background:#ffc107;
+            color:#000;
+            font-weight:600;
+            padding:12px 28px;
+            border-radius:30px;
+        }
+        .btn-outline{
+            border:2px solid #fff;
+            color:#fff;
+            padding:12px 28px;
+            border-radius:30px;
+        }
+
+        /* Section */
+        .section{
+            padding:70px 0;
+        }
+        .section-title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+        .section-title h2{
+            font-weight:700;
+            color:#0f5132;
+        }
+
+        /* Cards */
+        .feature-card{
+            background:#fff;
+            border-radius:15px;
+            padding:30px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+        .feature-card:hover{
+            transform:translateY(-8px);
+        }
+
+        /* Gallery */
+        .gallery img{
+            border-radius:15px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer{
+            background:#0f5132;
+            color:#d4f8d4;
+            padding:20px 0;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">?? PlantCare AI</a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login_user">User</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Admin</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero text-center">
+    <div class="container">
+        <h1>Multi Plant Leaf Disease Detection</h1>
+        <p>
+            AI-powered multi-class plant disease identification using<br>
+            Vision Transformers and Self-Attention Mechanism
+        </p>
+        <div class="mt-4">
+            <a href="/login_user" class="btn btn-main me-2">Get Started</a>
+            <a href="/login" class="btn btn-outline">Admin Panel</a>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Why Our System?</h2>
+            <p>Smart agriculture using deep learning</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <h5>?? Multi-Plant Support</h5>
+                    <p>Detect diseases across multiple plant species with a single system.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <h5>?? Vision Transformer</h5>
+                    <p>Self-attention mechanism improves accuracy and feature understanding.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <h5>?? High Accuracy</h5>
+                    <p>Trained on large datasets for reliable disease prediction.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>Sample Leaf Images</h2>
+        </div>
+        <div class="row g-4 gallery">
+            <div class="col-md-4">
+                <img src="../static/images/pd1.jpg" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="../static/images/pd2.jpg" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="../static/images/pd3.jpg" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Multi Plant Leaf Disease Detection | AI for Smart Farming</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

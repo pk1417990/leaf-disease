@@ -1,0 +1,327 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multi Plant Leaf Disease Detection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f2f9f6;
+}
+
+/* NAVBAR */
+.navbar{
+    background:linear-gradient(90deg,#0f5132,#198754,#20c997);
+}
+.navbar-brand,.nav-link{
+    color:#fff !important;
+    font-weight:600;
+}
+
+/* HERO */
+.hero{
+    padding:80px 0;
+}
+.hero h1{
+    font-weight:700;
+    color:#0f5132;
+}
+.hero p{
+    color:#444;
+    font-size:17px;
+}
+
+/* IMAGE BLOCKS */
+.image-stack{
+    position:relative;
+}
+.image-stack img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+.image-stack .img-2{
+    position:absolute;
+    width:60%;
+    bottom:-40px;
+    right:-20px;
+    border:5px solid #fff;
+}
+
+/* SECTION */
+.section{
+    padding:90px 0;
+}
+
+/* GRID */
+.disease-grid img{
+    border-radius:18px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    transition:0.4s;
+}
+.disease-grid img:hover{
+    transform:scale(1.05);
+}
+
+/* CARD */
+.info-box{
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* LABEL */
+.label{
+    position:absolute;
+    background:#198754;
+    color:#fff;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    top:15px;
+    left:15px;
+}
+
+/* CTA */
+.cta{
+    background:linear-gradient(120deg,#198754,#0dcaf0);
+    color:#fff;
+    padding:80px 0;
+}
+
+/* FOOTER */
+footer{
+    background:#003f36;
+    color:#cdeee3;
+    padding:25px 0;
+}
+/* ===== ADVANCED NAVBAR ===== */
+.navbar-advanced{
+    background: linear-gradient(120deg,#0f5132,#198754,#20c997,#0dcaf0);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    padding: 12px 0;
+}
+
+.navbar-advanced .navbar-brand{
+    color:#fff !important;
+    font-weight:700;
+    font-size:22px;
+    letter-spacing:1px;
+}
+
+.navbar-advanced .navbar-brand i{
+    color:#ffd966;
+    margin-right:6px;
+}
+
+.navbar-advanced .nav-link{
+    color:#ffffff !important;
+    font-weight:600;
+    margin:0 10px;
+    position:relative;
+    padding:8px 0;
+}
+
+/* underline animation */
+.navbar-advanced .nav-link::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:3px;
+    left:0;
+    bottom:-5px;
+    background:#ffd966;
+    transition:0.4s;
+}
+
+.navbar-advanced .nav-link:hover::after{
+    width:100%;
+}
+
+/* ICON STYLE */
+.navbar-advanced .nav-link i{
+    margin-right:6px;
+    color:#ffd966;
+}
+
+/* CTA BUTTON MENU */
+.menu-cta{
+    background:#ffd966;
+    color:#003f36 !important;
+    padding:8px 18px !important;
+    border-radius:30px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+.menu-cta i{
+    color:#003f36 !important;
+}
+
+/* ADMIN STYLE */
+.menu-admin{
+    border:2px solid #fff;
+    border-radius:30px;
+    padding:6px 16px !important;
+}
+
+/* MOBILE */
+.navbar-toggler{
+    border:2px solid #fff;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-advanced sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <i class="fa fa-seedling"></i> MULTI PLANT LEAF
+        </a>
+
+        <button class="navbar-toggler text-white" type="button"
+                data-bs-toggle="collapse" data-bs-target="#menu">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link menu-cta" href="/">
+                        <i class="fa fa-home"></i> Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/login_user">
+                        <i class="fa fa-upload"></i> Detect Disease
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-admin" href="/login">
+                        <i class="fa fa-user-shield"></i> Admin
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-md-6">
+<h1>Multi-Plant Leaf Disease<br>Detection Using AI</h1>
+<p>
+An intelligent system that detects diseases across multiple crops using
+deep learning and vision transformer models.
+</p>
+<a href="/login_user" class="btn btn-success px-4 py-2">
+<i class="fa fa-upload"></i> Upload Leaf Image
+</a>
+</div>
+
+<div class="col-md-6">
+<div class="image-stack">
+<img src="../static/images/leaf1.jpg">
+<img src="../static/images/leaf2.jpg" class="img-2">
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MULTI PLANT GRID -->
+<section class="section bg-light">
+<div class="container">
+<h3 class="text-center mb-5 text-success">Multi-Crop Disease Detection</h3>
+
+<div class="row g-4 disease-grid">
+<div class="col-md-4 position-relative">
+<span class="label">Tomato</span>
+<img src="../static/images/p1.jpg" class="img-fluid">
+</div>
+
+<div class="col-md-4 position-relative">
+<span class="label">Potato</span>
+<img src="../static/images/p2.jpg" class="img-fluid">
+</div>
+
+<div class="col-md-4 position-relative">
+<span class="label">Apple</span>
+<img src="../static/images/p3.jpg" class="img-fluid">
+</div>
+
+<div class="col-md-4 position-relative">
+<span class="label">Corn</span>
+<img src="../static/images/p2.jpg" class="img-fluid">
+</div>
+
+<div class="col-md-4 position-relative">
+<span class="label">Grape</span>
+<img src="../static/images/p1.jpg" class="img-fluid">
+</div>
+
+<div class="col-md-4 position-relative">
+<span class="label">Healthy vs Diseased</span>
+<img src="../static/images/p3.jpg" class="img-fluid">
+</div>
+</div>
+</div>
+</section>
+
+<!-- AI INFO -->
+<section class="section">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-md-6">
+<img src="../static/images/ai_leaf.jpg" class="img-fluid rounded shadow">
+</div>
+<div class="col-md-6">
+<div class="info-box">
+<h4 class="text-success">AI-Based Disease Identification</h4>
+<p>
+The system analyzes texture, color, and patterns of plant leaves using
+self-attention mechanisms to accurately classify diseases.
+</p>
+<ul>
+<li>Multi-class disease prediction</li>
+<li>Vision Transformer architecture</li>
+<li>High accuracy and scalability</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta text-center">
+<div class="container">
+<h2>Detect Plant Diseases Instantly</h2>
+<p>Upload a leaf image and get accurate disease prediction.</p>
+<a href="/login_user" class="btn btn-light px-4 py-2">
+<i class="fa fa-upload"></i> Start Detection
+</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center">
+<p>Multi Plant Leaf Disease Detection System | Smart Agriculture</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
