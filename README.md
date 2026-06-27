@@ -8,3 +8,5 @@ High prediction accuracy,
 User-friendly Flask web application,
 # Technologies Used
 | Python | Programming Language |,| Flask | Web Framework |,| TensorFlow | Deep Learning |,| Keras | CNN Model |,| OpenCV | Image Processing |,| NumPy | Numerical Computing |,| HTML5 | Frontend |,| sql | backend |
+# Workflow
+Leaf Image ▼ Image Upload ▼ Preprocessing  ▼ CNN Deep Learning Model  ▼ Disease Prediction  ▼ Display Result
